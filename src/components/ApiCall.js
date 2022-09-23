@@ -36,7 +36,7 @@ export const ApiCall = () => {
             <p>Gender: {character.gender}</p>
             <p>Species: {character.species}</p>
             <p>Status: {character.status}</p>
-            <img src={character.image} />
+            <img src={character.image} alt={character.name} />
           </div>
         );
       })}
