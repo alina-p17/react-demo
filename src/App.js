@@ -2,20 +2,20 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Books } from "./components/Books";
 import { BookRecomendations } from "./components/BookRecommendations";
-import { ApiCall } from "./components/ApiCall";
-import { Header } from "./components/Header/Header";
+import { RickAndMorty } from "./components/RickAndMorty";
+import DrawerAppBar from "./components/AppBar/AppBar";
 
 function App() {
   return (
     <BrowserRouter>
-      <Header />
+      <DrawerAppBar />
       <Routes>
         <Route index element={<Books />} />
         <Route
           path="book-recommendations"
           element={<BookRecomendations />}
         ></Route>
-        <Route path="api-call" element={<ApiCall />}></Route>
+        <Route path="rick&morty" element={<RickAndMorty />}></Route>
       </Routes>
     </BrowserRouter>
   );
