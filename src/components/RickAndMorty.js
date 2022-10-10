@@ -56,14 +56,14 @@ export const RickAndMorty = () => {
         For All Rick & Morty Fans - a List of Their Favorite Sitcome Characters
       </Typography>
 
-      <Grid container spacing={4} width={1300}>
+      <Grid container spacing={8} sx={{ padding: "0 80px 50px" }}>
         {characters.map((character, index) => {
           return (
-            <Grid item xs={4} key={character.id}>
-              <Card sx={{ maxWidth: 345 }}>
+            <Grid item xs={6} sm={4} md={3} key={character.id}>
+              <Card sx={{ height: "100%" }}>
                 <CardMedia
                   component="img"
-                  height="140"
+                  height="200"
                   image={character.image}
                 />
                 <CardContent>
@@ -129,7 +129,3 @@ export const RickAndMorty = () => {
     </Box>
   );
 };
-
-// <p>Gender: {character.gender}</p>
-// <p>Species: {character.species}</p>
-// <p>Status: {character.status}</p>
