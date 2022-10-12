@@ -1,24 +1,24 @@
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { Container } from "@mui/system";
+import { connect } from "react-redux";
+import { inputBookTitle } from "../actions";
 
-export const BookRecomendations = () => {
-  const [bookRec, setBookRec] = useState("");
-
+const BookRecomendations = (props) => {
   const ref = useRef();
 
   const handleTextFieldChange = (event) => {
     event.preventDefault();
-    setBookRec(event.target.value);
+    props.inputBookTitle(event.target.value);
   };
 
   const submitHandler = (event) => {
     event.preventDefault();
     const userInput = document.createElement("p");
-    userInput.innerHTML = `&#x2022; ${bookRec}`;
+    userInput.innerHTML = `&#x2022; ${props.bookTitle}`;
     ref.current.appendChild(userInput);
   };
 
@@ -59,3 +59,10 @@ export const BookRecomendations = () => {
     </Container>
   );
 };
+
+const mapStateToProps = (state) => {
+  return {
+    bookTitle: state.bookTitle,
+  };
+};
+export default connect(mapStateToProps, { inputBookTitle })(BookRecomendations);
