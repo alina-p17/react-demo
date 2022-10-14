@@ -91,6 +91,11 @@ function DrawerAppBar(props) {
                     <Link to="/rick&morty">Rick & Morty</Link>
                   </ListItemText>
                 </ListItemButton>
+                <ListItemButton>
+                  <ListItemText>
+                    <Link to="/contact">Contact</Link>
+                  </ListItemText>
+                </ListItemButton>
               </ListItem>
             </List>
           </Box>

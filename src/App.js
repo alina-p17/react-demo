@@ -5,6 +5,7 @@ import BookRecomendations from "./components/BookRecommendations";
 import RickAndMorty from "./components/RickAndMorty";
 import DrawerAppBar from "./components/AppBar/AppBar";
 import RickAndMortyDetail from "./components/RickAndMortyDetail";
+import ContactForm from "./components/ContactForm";
 
 function App() {
   return (
@@ -18,7 +19,11 @@ function App() {
         ></Route>
         <Route path="rick&morty" exact element={<RickAndMorty />}></Route>
         <Route path="rick&morty/:id" element={<RickAndMortyDetail />}></Route>
-        <Route path="*" element={<Books />}></Route>
+        <Route path="contact" element={<ContactForm />}></Route>
+        <Route
+          path="*"
+          element={<h1 style={{ textAlign: "center" }}>404 NOT FOUND!</h1>}
+        ></Route>
       </Routes>
     </BrowserRouter>
   );
