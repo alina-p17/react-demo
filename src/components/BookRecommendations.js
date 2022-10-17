@@ -4,21 +4,23 @@ import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { Container } from "@mui/system";
-import { connect } from "react-redux";
 import { inputBookTitle } from "../actions";
+import { useSelector, useDispatch } from "react-redux";
 
-const BookRecomendations = (props) => {
+const BookRecomendations = () => {
   const ref = useRef();
+  const bookTitle = useSelector((state) => state.bookTitle);
+  const dispatch = useDispatch();
 
   const handleTextFieldChange = (event) => {
     event.preventDefault();
-    props.inputBookTitle(event.target.value);
+    dispatch(inputBookTitle(event.target.value));
   };
 
   const submitHandler = (event) => {
     event.preventDefault();
     const userInput = document.createElement("p");
-    userInput.innerHTML = `&#x2022; ${props.bookTitle}`;
+    userInput.innerHTML = `&#x2022; ${bookTitle}`;
     ref.current.appendChild(userInput);
   };
 
@@ -60,9 +62,4 @@ const BookRecomendations = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    bookTitle: state.bookTitle,
-  };
-};
-export default connect(mapStateToProps, { inputBookTitle })(BookRecomendations);
+export default BookRecomendations;
